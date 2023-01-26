@@ -3,6 +3,7 @@ package com.driver.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -12,7 +13,7 @@ public class Customer {
     String mobile ;
     String password;
 
-    List<TripBooking> tripBookingList;
+    List<TripBooking> tripBookingList = new ArrayList<>();
 
     public int getCustomerId() {
         return customerId;
