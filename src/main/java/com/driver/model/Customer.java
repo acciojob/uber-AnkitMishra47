@@ -45,7 +45,7 @@ public class Customer {
         return tripBookingList;
     }
 
-    public void setTripBookingList(List<TripBooking> tripBookingList) {
+    public void setTripBookingList(List tripBookingList) {
         this.tripBookingList = tripBookingList;
     }
 

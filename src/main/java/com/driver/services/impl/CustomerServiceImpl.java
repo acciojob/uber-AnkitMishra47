@@ -35,7 +35,6 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void deleteCustomer(Integer customerId) {
 		// Delete customer without using deleteById function
-
 		customerRepository2.delete(customerRepository2.findById(customerId).get());
 	}
 
@@ -57,16 +56,24 @@ public class CustomerServiceImpl implements CustomerService {
 															distanceInKm ,fromLocation , toLocation);
 				tripBookingRepository2.save(tripBooking);
 
+				List<TripBooking> tripBookings = customer.getTripBookingList();
+				tripBookings.add(tripBooking);
+				customer.setTripBookingList(tripBookings);
+				driver.setTripBookingList(tripBookings);
+
+				driverRepository2.save(driver);
+				customerRepository2.save(customer);
+
 				return tripBooking;
 			}
 		}
+
 		throw new Exception("No cab available!");
 	}
 
 	@Override
 	public void cancelTrip(Integer tripId){
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
-
 		TripBooking tripBooking = tripBookingRepository2.findById(tripId).get();
 		tripBooking.setStatus(TripStatus.CANCELED);
 
@@ -76,6 +83,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void completeTrip(Integer tripId){
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
+
 		TripBooking tripBooking = tripBookingRepository2.findById(tripId).get();
 		tripBooking.setStatus(TripStatus.COMPLETED);
 		tripBookingRepository2.save(tripBooking);
