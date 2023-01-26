@@ -63,8 +63,12 @@ public class Driver {
         this.password = password;
     }
 
+
     public Driver(String mobile, String password) {
         this.mobile = mobile;
         this.password = password;
+    }
+
+    public Driver() {
     }
 }

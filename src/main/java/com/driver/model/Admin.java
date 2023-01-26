@@ -35,8 +35,16 @@ public class Admin {
         this.password = password;
     }
 
+    public Admin() {
+    }
+
     public Admin(int adminId, String username, String password) {
         this.adminId = adminId;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Admin(String username, String password) {
         this.username = username;
         this.password = password;
     }

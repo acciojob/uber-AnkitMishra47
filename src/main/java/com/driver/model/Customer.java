@@ -18,6 +18,9 @@ public class Customer {
         return customerId;
     }
 
+    public Customer() {
+    }
+
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }

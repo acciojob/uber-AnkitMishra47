@@ -29,6 +29,9 @@ public class TripBooking {
         return bill;
     }
 
+    public TripBooking() {
+    }
+
     public void setBill(int bill) {
         this.bill = bill;
     }
@@ -86,6 +89,8 @@ public class TripBooking {
     public void setTripBookingId(int tripBookingId) {
         this.tripBookingId = tripBookingId;
     }
+
+
 
     public TripBooking(TripStatus status, Customer customer, Driver driver, int distanceInKm, String fromLocation, String toLocation) {
         this.status = status;
